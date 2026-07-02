@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: <USER>-app-develop
+  namespace: openshift-gitops
+  labels:
+    app: node-build-config-openshift
+    environment: dev
+spec:
+  destination:
+    namespace: <USER>-develop
+    server: https://kubernetes.default.svc
+  project: <USER>-dev
+  source:
+    kustomize:
+    path: cd-practice/deploy/overlays/dev
+    repoURL: http://<GITEA_HOSTNAME>/gitea/cd-practice.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ApplyOutOfSyncOnly=true 
+      - CreateNamespace=true

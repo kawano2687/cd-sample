@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: <USER>-app-staging
+  namespace: openshift-gitops
+  labels:
+    app: node-build-config-openshift
+    environment: stg
+spec:
+  destination:
+    namespace: <USER>-staging
+    server: https://kubernetes.default.svc
+  project: <USER>-stg
+  source:
+    kustomize:
+    path: cd-practice/deploy/overlays/stg
+    repoURL: http://<GITEA_HOSTNAME>/gitea/cd-practice.git
+    targetRevision: staging
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ApplyOutOfSyncOnly=true 
+      - CreateNamespace=true

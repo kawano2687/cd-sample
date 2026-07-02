@@ -1,0 +1,8 @@
+---
+apiVersion: pfe.rhpds.com/v1
+kind: Gitea
+metadata:
+  name: gitea
+spec:
+  giteaAdminUser: gitea
+  giteaAdminPassword: openshift
