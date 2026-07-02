@@ -13,7 +13,7 @@ spec:
   project: demo-dev
   source:
     kustomize:
-    path: cd-practice/deploy/overlays/dev
+    path: cd-sample/deploy/overlays/dev
     repoURL: http://<GITEA_HOSTNAME>/gitea/cd-sample.git
     targetRevision: main
   syncPolicy:
