@@ -1,6 +1,6 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: <USER>-develop
+  name: demo-develop
   labels:
     argocd.argoproj.io/managed-by=openshift-gitops

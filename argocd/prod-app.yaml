@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: <USER>-app-production
+  name: demo-app-production
   namespace: openshift-gitops
   labels:
     app: node-build-config-openshift
     environment: prod
 spec:
   destination:
-    namespace: <USER>-production
+    namespace: demo-production
     server: https://kubernetes.default.svc
-  project: <USER>-prod
+  project: demo-prod
   source:
     kustomize:
-    path: cd-practice/deploy/overlays/prod
-    repoURL: http://<GITEA_HOSTNAME>/gitea/cd-practice.git
+    path: cd-sample/deploy/overlays/prod
+    repoURL: http://<GITEA_HOSTNAME>/gitea/cd-sample.git
     targetRevision: production
   syncPolicy:
     automated:

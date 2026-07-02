@@ -4,9 +4,9 @@ kind: Kustomization
 resources:
 - ../../base
 
-namespace: <USER>-staging
+namespace: demo-staging
 
 images:
 - digest: sha256:50672709e10ecde5fadb1c6b29b5140b350031fc2c38b0314fb848ac4b0e3814
   name: ___IMAGE_URL___@___IMAGE_DIGEST___
-  newName: image-registry.openshift-image-registry.svc:5000/<USER>-develop/health-record
+  newName: image-registry.openshift-image-registry.svc:5000/demo-develop/health-record

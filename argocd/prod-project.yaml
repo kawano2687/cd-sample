@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: <USER>-prod
+  name: demo-prod
   namespace: openshift-gitops
 spec:
   description: prod environment of health system
   destinations:
-  - namespace: <USER>-production
+  - namespace: demo-production
     server: https://kubernetes.default.svc
   sourceRepos:
-  - http://<GITEA_HOSTNAME>/gitea/cd-practice.git
+  - http://<GITEA_HOSTNAME>/gitea/cd-sample.git
   clusterResourceWhitelist:
   - group: '*'
     kind: '*'

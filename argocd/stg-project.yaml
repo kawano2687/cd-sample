@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: <USER>-stg
+  name: demo-stg
   namespace: openshift-gitops
 spec:
   description: stg environment of health system
   destinations:
-  - namespace: <USER>-staging
+  - namespace: demo-staging
     server: https://kubernetes.default.svc
   sourceRepos:
-  - http://<GITEA_HOSTNAME>/gitea/cd-practice.git
+  - http://<GITEA_HOSTNAME>/gitea/cd-sample.git
   clusterResourceWhitelist:
   - group: '*'
     kind: '*'
