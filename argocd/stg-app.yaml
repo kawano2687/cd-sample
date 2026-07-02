@@ -13,8 +13,8 @@ spec:
   project: demo-stg
   source:
     kustomize:
-    path: cd-sample/deploy/overlays/stg
     repoURL: http://<GITEA_HOSTNAME>/gitea/cd-sample.git
+    path: deploy/overlays/stg
     targetRevision: staging
   syncPolicy:
     automated:
